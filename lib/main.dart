@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:venus/pages/sign.dart';
+import 'package:venus/pages/signin.dart';
+import 'package:venus/pages/signup.dart';
 import 'package:venus/pages/start.dart';
 
 void main() => runApp(MyApp());
@@ -15,6 +18,9 @@ class MyApp extends StatelessWidget {
       initialRoute: "/start",
       routes: {
         "/start":(context)=>StartPage(),
+        "/sign":(context)=>SignPage(),
+        "/signin":(context)=>SignInPage(),
+        "/signup":(context)=>SignUpPage(),
       },
       home: MyHomePage(),
     );

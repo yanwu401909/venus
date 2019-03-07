@@ -116,7 +116,9 @@ class _StartPageState extends State<StartPage>
                 child: RaisedButton(
                   elevation: 20.0,
                   color: Colors.white,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.popAndPushNamed(context, "/sign");
+                  },
                   child: Container(
                     margin: EdgeInsets.all(15.0),
                     width: MediaQuery.of(context).size.width * 0.55,
