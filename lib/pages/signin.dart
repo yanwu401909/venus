@@ -137,7 +137,9 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, "/nearbyfriends");
+              },
             ),
             Expanded(
               child: Container(),

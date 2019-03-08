@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: "/friendspick",
+      initialRoute: "/start",
       routes: {
         "/start":(context)=>StartPage(),
         "/sign":(context)=>SignPage(),

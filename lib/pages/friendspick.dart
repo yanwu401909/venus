@@ -22,8 +22,7 @@ class _FriendsPickPageState extends State<FriendsPickPage>
   @override
   void initState() {
     super.initState();
-    models = pictureCardList;
-    length = models.length;
+    _loadPictures();
     _controller =
         AnimationController(duration: Duration(microseconds: 500), vsync: this);
     _controller.addListener(() {
@@ -40,6 +39,13 @@ class _FriendsPickPageState extends State<FriendsPickPage>
           break;
       }
     });
+  }
+
+  void _loadPictures() {
+    index = 0;
+    models = pictureCardList;
+    length = models.length;
+    setState(() {});
   }
 
   void _dragStart(DragStartDetails details) {
@@ -110,49 +116,75 @@ class _FriendsPickPageState extends State<FriendsPickPage>
             width: double.infinity,
             height: MediaQuery.of(context).size.height * 0.7,
             padding: const EdgeInsets.all(30.0),
-            child: Stack(
-              children: <Widget>[
-                (index + 1) <= length
-                    ? Transform(
-                        transform: Matrix4.identity()
-                          ..scale(0.8 + 0.1 * dragPercent)
-                          ..translate(40.0 - 20 * dragPercent,
-                              -40.0 + 20 * dragPercent),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            color: Colors.grey.withOpacity(0.5),
-                          ),
-                          width: double.infinity,
-                          height: double.infinity,
-                        ),
-                      )
-                    : Container(),
-                (index + 2) <= length
-                    ? Transform(
-                        transform: Matrix4.identity()
-                          ..scale(0.9 + 0.1 * dragPercent)
-                          ..translate(20.0 * (1 - dragPercent),
-                              -20.0 * (1 - dragPercent)),
+            child: (index + 1) <= length
+                ? Stack(
+                    children: <Widget>[
+                      (index + 2) < length
+                          ? Transform(
+                              transform: Matrix4.identity()
+                                ..scale(0.8 + 0.1 * dragPercent)
+                                ..translate(40.0 - 20 * dragPercent,
+                                    -40.0 + 20 * dragPercent),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  color: Colors.grey.withOpacity(0.5),
+                                ),
+                                width: double.infinity,
+                                height: double.infinity,
+                              ),
+                            )
+                          : Container(),
+                      (index + 2) <= length
+                          ? Transform(
+                              transform: Matrix4.identity()
+                                ..scale(0.9 + 0.1 * dragPercent)
+                                ..translate(20.0 * (1 - dragPercent),
+                                    -20.0 * (1 - dragPercent)),
+                              child: PictureCard(
+                                model: models[index + 1],
+                              ),
+                            )
+                          : Container(),
+                      Transform.rotate(
+                        angle:
+                            pi / 6 * dragPercent * (dragDistance >= 0 ? 1 : -1),
+                        origin: Offset(dragDistance, 500 * dragPercent),
                         child: PictureCard(
-                          model: models[index + 1],
+                          model: models[index],
                         ),
+                      ),
+                      GestureDetector(
+                        onHorizontalDragStart: _dragStart,
+                        onHorizontalDragUpdate: _dragUpdate,
+                        onHorizontalDragEnd: _dragEnd,
                       )
-                    : Container(),
-                Transform.rotate(
-                  angle: pi / 6 * dragPercent * (dragDistance >= 0 ? 1 : -1),
-                  origin: Offset(dragDistance, 500 * dragPercent),
-                  child: PictureCard(
-                    model: models[index],
+                    ],
+                  )
+                : Center(
+                    child: RaisedButton(
+                      padding: EdgeInsets.all(0.0),
+                      color: Colors.redAccent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 10.0),
+                        alignment: Alignment.center,
+                        width: MediaQuery.of(context).size.width * 0.7,
+                        height: 50,
+                        child: Text(
+                          "Get More?",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                      onPressed: _loadPictures,
+                    ),
                   ),
-                ),
-                GestureDetector(
-                  onHorizontalDragStart: _dragStart,
-                  onHorizontalDragUpdate: _dragUpdate,
-                  onHorizontalDragEnd: _dragEnd,
-                )
-              ],
-            ),
           ),
           Expanded(
             child: Container(),

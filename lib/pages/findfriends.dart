@@ -214,7 +214,9 @@ class _FindFriendsPageState extends State<FindFriendsPage> {
                 ],
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, "/friendspick");
+            },
           ),
           SizedBox(
             height: 50.0,
