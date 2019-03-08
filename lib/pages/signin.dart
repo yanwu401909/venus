@@ -73,7 +73,7 @@ class _SignInPageState extends State<SignInPage> {
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),
-                color: Colors.grey.withOpacity(0.5),
+                color: Colors.white.withOpacity(0.3),
               ),
               width: MediaQuery.of(context).size.width * 0.8,
               child: TextField(
@@ -99,7 +99,7 @@ class _SignInPageState extends State<SignInPage> {
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),
-                color: Colors.grey.withOpacity(0.5),
+                color: Colors.white.withOpacity(0.3),
               ),
               width: MediaQuery.of(context).size.width * 0.8,
               child: TextField(
@@ -155,7 +155,9 @@ class _SignInPageState extends State<SignInPage> {
                     fontSize: 15.0,
                   ),
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, "/forgetpassword");
+                },
               ),
             ),
             Expanded(

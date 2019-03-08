@@ -73,7 +73,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),
-                color: Colors.grey.withOpacity(0.5),
+                color: Colors.white.withOpacity(0.3),
               ),
               width: MediaQuery.of(context).size.width * 0.8,
               child: TextField(
@@ -99,7 +99,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),
-                color: Colors.grey.withOpacity(0.5),
+                color: Colors.white.withOpacity(0.3),
               ),
               width: MediaQuery.of(context).size.width * 0.8,
               child: TextField(
@@ -125,7 +125,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),
-                color: Colors.grey.withOpacity(0.5),
+                color: Colors.white.withOpacity(0.3),
               ),
               width: MediaQuery.of(context).size.width * 0.8,
               child: TextField(

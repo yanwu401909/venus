@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:venus/pages/findfriends.dart';
+import 'package:venus/pages/forgetpassword.dart';
+import 'package:venus/pages/friendspick.dart';
+import 'package:venus/pages/nearbyfriends.dart';
 import 'package:venus/pages/presignup.dart';
 import 'package:venus/pages/sign.dart';
 import 'package:venus/pages/signin.dart';
@@ -16,13 +20,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: "/start",
+      initialRoute: "/friendspick",
       routes: {
         "/start":(context)=>StartPage(),
         "/sign":(context)=>SignPage(),
         "/signin":(context)=>SignInPage(),
         "/presignup":(context)=>PreSignUpPage(),
         "/signup":(context)=>SignUpPage(),
+        "/nearbyfriends":(context)=>NearByFriendsPage(),
+        "/findfriends":(context)=>FindFriendsPage(),
+        "/forgetpassword":(context)=>ForgetPasswordPage(),
+        "/friendspick":(context)=>FriendsPickPage(),
       },
       home: MyHomePage(),
     );
