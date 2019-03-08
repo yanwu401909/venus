@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:venus/pages/presignup.dart';
 import 'package:venus/pages/sign.dart';
 import 'package:venus/pages/signin.dart';
 import 'package:venus/pages/signup.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         "/start":(context)=>StartPage(),
         "/sign":(context)=>SignPage(),
         "/signin":(context)=>SignInPage(),
+        "/presignup":(context)=>PreSignUpPage(),
         "/signup":(context)=>SignUpPage(),
       },
       home: MyHomePage(),

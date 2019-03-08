@@ -13,7 +13,7 @@ class _SignPageState extends State<SignPage> {
         decoration: BoxDecoration(
           image: DecorationImage(
             alignment: Alignment.topCenter,
-            image: AssetImage("assets/sign_1.jpg"),
+            image: AssetImage("assets/sign_1.jpeg"),
             fit: BoxFit.fitWidth,
           ),
         ),
@@ -25,7 +25,7 @@ class _SignPageState extends State<SignPage> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
               gradient: LinearGradient(
-                colors: [Color(0xffe1d1db), Color(0xffc26e5e)],
+                colors: [Colors.red[50], Colors.red[300]],
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
               ),
@@ -100,7 +100,7 @@ class _SignPageState extends State<SignPage> {
                             )),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, "/signup");
+                        Navigator.pushNamed(context, "/presignup");
                       },
                     ),
                   ],

@@ -11,10 +11,11 @@ class _SignInPageState extends State<SignInPage> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-            image: DecorationImage(
-          image: AssetImage("assets/sign_2.jpg"),
-          fit: BoxFit.cover,
-        )),
+          image: DecorationImage(
+            image: AssetImage("assets/sign_2.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Column(
           children: <Widget>[
             AppBar(
@@ -41,6 +42,9 @@ class _SignInPageState extends State<SignInPage> {
                 ),
               ],
             ),
+            SizedBox(
+              height: 50.0,
+            ),
             Text(
               "Welcome Back",
               style: TextStyle(
@@ -48,6 +52,123 @@ class _SignInPageState extends State<SignInPage> {
                 fontSize: 30.0,
                 fontWeight: FontWeight.w400,
               ),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            Text(
+              "Log in with your account",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+              ),
+            ),
+            Expanded(
+              child: Container(),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: 15.0,
+                vertical: 2.0,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.0),
+                color: Colors.grey.withOpacity(0.5),
+              ),
+              width: MediaQuery.of(context).size.width * 0.8,
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: "Email",
+                  hintStyle: TextStyle(color: Colors.white),
+                  border: InputBorder.none,
+                  icon: Image.asset(
+                    "assets/icon_email.png",
+                    width: 25.0,
+                    height: 25.0,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: 15.0,
+                vertical: 2.0,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.0),
+                color: Colors.grey.withOpacity(0.5),
+              ),
+              width: MediaQuery.of(context).size.width * 0.8,
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: "Password",
+                  hintStyle: TextStyle(color: Colors.white),
+                  border: InputBorder.none,
+                  icon: Image.asset(
+                    "assets/icon_password.png",
+                    width: 25.0,
+                    height: 25.0,
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Container(),
+            ),
+            RaisedButton(
+              padding: EdgeInsets.all(0.0),
+              color: Color(0xffee8778),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 10.0),
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width * 0.8,
+                child: Text(
+                  "Log In",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+              onPressed: () {},
+            ),
+            Expanded(
+              child: Container(),
+            ),
+            Material(
+              color: Colors.transparent,
+              elevation: 0.0,
+              child: InkWell(
+                child: Text(
+                  "Forget password?",
+                  style: TextStyle(
+                    decoration: TextDecoration.underline,
+                    decorationStyle: TextDecorationStyle.double,
+                    color: Colors.white,
+                    fontSize: 15.0,
+                  ),
+                ),
+                onTap: () {},
+              ),
+            ),
+            Expanded(
+              child: Container(),
+            ),
+            Expanded(
+              child: Container(),
+            ),
+            Expanded(
+              child: Container(),
+            ),
+            Expanded(
+              child: Container(),
             ),
           ],
         ),
