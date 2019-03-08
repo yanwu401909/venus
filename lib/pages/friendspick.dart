@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:venus/mock/mock.dart';
 import 'package:venus/model/models.dart';
 
 class FriendsPickPage extends StatefulWidget {
@@ -8,23 +9,61 @@ class FriendsPickPage extends StatefulWidget {
   _FriendsPickPageState createState() => _FriendsPickPageState();
 }
 
-class _FriendsPickPageState extends State<FriendsPickPage> {
-  final double distance = 400;
+class _FriendsPickPageState extends State<FriendsPickPage>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+  final double distance = 200;
   double dragPercent = 0.0;
   double dragDistance = 0.0;
   Offset start;
+  List<PictureCardModel> models;
+  int index = 0;
+  int length = 0;
+  @override
+  void initState() {
+    super.initState();
+    models = pictureCardList;
+    length = models.length;
+    _controller =
+        AnimationController(duration: Duration(microseconds: 500), vsync: this);
+    _controller.addListener(() {
+      setState(() {
+        dragPercent = (dragPercent - _controller.value).clamp(0.0, 1.0);
+      });
+    });
+    _controller.addStatusListener((state) {
+      switch (state) {
+        case AnimationStatus.completed:
+          _controller.reset();
+          break;
+        default:
+          break;
+      }
+    });
+  }
+
   void _dragStart(DragStartDetails details) {
     start = details.globalPosition;
   }
 
   void _dragUpdate(DragUpdateDetails details) {
-    dragDistance =details.globalPosition.dx - start.dx;
-    dragPercent = (details.globalPosition.dx - start.dx).abs() / 400;
+    dragDistance = details.globalPosition.dx - start.dx;
+    dragPercent = ((details.globalPosition.dx - start.dx).abs() / distance)
+        .clamp(0.0, 1.0);
     setState(() {});
   }
 
   void _dragEnd(DragEndDetails details) {
-    print("Move End!!!!!!!!!!");
+    if (dragPercent < 1.0) {
+      _controller.forward();
+    } else {
+      index = (index + 1).clamp(0, length);
+    }
+    if (dragPercent.toInt() == 1) {
+      dragPercent = 0.0;
+      dragDistance = 0.0;
+    }
+    setState(() {});
   }
 
   @override
@@ -73,43 +112,38 @@ class _FriendsPickPageState extends State<FriendsPickPage> {
             padding: const EdgeInsets.all(30.0),
             child: Stack(
               children: <Widget>[
-                Transform(
-                  transform: Matrix4.identity()
-                    ..scale(0.8)
-                    ..translate(40.0, -40.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: Colors.grey.withOpacity(0.5),
-                    ),
-                    width: double.infinity,
-                    height: double.infinity,
-                  ),
-                ),
-                Transform(
-                  transform: Matrix4.identity()
-                    ..scale(0.9 + 0.1 * dragPercent)
-                    ..translate(
-                        20.0 * (1 - dragPercent), -20.0 * (1 - dragPercent)),
-                  child: PictureCard(
-                    model: PictureCardModel(
-                      name: "森系",
-                      occupation: "森系",
-                      imageUrl:
-                          "https://b-ssl.duitang.com/uploads/item/201605/21/20160521210921_HMQYS.thumb.700_0.jpeg",
-                    ),
-                  ),
-                ),
+                (index + 1) <= length
+                    ? Transform(
+                        transform: Matrix4.identity()
+                          ..scale(0.8 + 0.1 * dragPercent)
+                          ..translate(40.0 - 20 * dragPercent,
+                              -40.0 + 20 * dragPercent),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
+                            color: Colors.grey.withOpacity(0.5),
+                          ),
+                          width: double.infinity,
+                          height: double.infinity,
+                        ),
+                      )
+                    : Container(),
+                (index + 2) <= length
+                    ? Transform(
+                        transform: Matrix4.identity()
+                          ..scale(0.9 + 0.1 * dragPercent)
+                          ..translate(20.0 * (1 - dragPercent),
+                              -20.0 * (1 - dragPercent)),
+                        child: PictureCard(
+                          model: models[index + 1],
+                        ),
+                      )
+                    : Container(),
                 Transform.rotate(
-                  angle: pi/4 * dragPercent,
-                  origin: Offset(dragDistance, 0),
+                  angle: pi / 6 * dragPercent * (dragDistance >= 0 ? 1 : -1),
+                  origin: Offset(dragDistance, 500 * dragPercent),
                   child: PictureCard(
-                    model: PictureCardModel(
-                      name: "森系",
-                      occupation: "森系",
-                      imageUrl:
-                          "https://b-ssl.duitang.com/uploads/item/201509/23/20150923185801_kwBdc.thumb.700_0.jpeg",
-                    ),
+                    model: models[index],
                   ),
                 ),
                 GestureDetector(
@@ -130,11 +164,11 @@ class _FriendsPickPageState extends State<FriendsPickPage> {
                 color: Colors.grey,
                 shape: CircleBorder(),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Icon(
                     Icons.bubble_chart,
                     color: Colors.white,
-                    size: 40,
+                    size: 30,
                   ),
                 ),
                 onPressed: () {},
@@ -143,11 +177,11 @@ class _FriendsPickPageState extends State<FriendsPickPage> {
                 color: Colors.redAccent,
                 shape: CircleBorder(),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Icon(
                     Icons.favorite,
                     color: Colors.white,
-                    size: 40,
+                    size: 30,
                   ),
                 ),
                 onPressed: () {},
