@@ -25,7 +25,7 @@ class _SignPageState extends State<SignPage> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
               gradient: LinearGradient(
-                colors: [Colors.red[50], Colors.red[300]],
+                colors: [Color(0xffd6c0d1), Color(0xffc46e60)],
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
               ),
@@ -71,7 +71,8 @@ class _SignPageState extends State<SignPage> {
                         child: Text("Sign In",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 18.0,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w600,
                             )),
                       ),
                       onPressed: () {
@@ -93,11 +94,14 @@ class _SignPageState extends State<SignPage> {
                           vertical: 10.0,
                           horizontal: 20.0,
                         ),
-                        child: Text("Sign Up",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 18.0,
-                            )),
+                        child: Text(
+                          "Sign Up",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                       ),
                       onPressed: () {
                         Navigator.pushNamed(context, "/presignup");

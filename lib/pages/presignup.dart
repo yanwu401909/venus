@@ -54,8 +54,8 @@ class _PreSignUpPageState extends State<PreSignUpPage> {
                     children: <Widget>[
                       Image.asset(
                         "assets/icon_facebook.png",
-                        width: 30.0,
-                        height: 30.0,
+                        width: 25.0,
+                        height: 25.0,
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
@@ -64,7 +64,7 @@ class _PreSignUpPageState extends State<PreSignUpPage> {
                           "Continue with facebook",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 18.0,
+                            fontSize: 16.0,
                           ),
                         ),
                       ),
@@ -83,8 +83,8 @@ class _PreSignUpPageState extends State<PreSignUpPage> {
                     children: <Widget>[
                       Image.asset(
                         "assets/icon_email_black.png",
-                        width: 30.0,
-                        height: 30.0,
+                        width: 25.0,
+                        height: 25.0,
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
@@ -93,7 +93,7 @@ class _PreSignUpPageState extends State<PreSignUpPage> {
                           "Sign Up with Email",
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 18.0,
+                            fontSize: 16.0,
                           ),
                         ),
                       ),
@@ -122,7 +122,7 @@ class _PreSignUpPageState extends State<PreSignUpPage> {
                           style: TextStyle(
                             decoration: TextDecoration.underline,
                             decorationStyle: TextDecorationStyle.double,
-                            letterSpacing: 2.0,
+                            letterSpacing: 1.0,
                             color: Colors.white,
                             fontSize: 15.0,
                             fontStyle: FontStyle.normal,

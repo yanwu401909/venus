@@ -82,28 +82,28 @@ class _NearByFriendsPageState extends State<NearByFriendsPage> {
                   Align(
                     alignment: Alignment(-0.5,-0.5),
                     child: CircleAvatar(
-                      maxRadius: 25.0,
+                      maxRadius: 20.0,
                       backgroundImage: AssetImage("assets/default_head_02.jpg"),
                     ),
                   ),
                   Align(
                     alignment: Alignment(-0.7,0.4),
                     child: CircleAvatar(
-                      maxRadius: 25.0,
+                      maxRadius: 15.0,
                       backgroundImage: AssetImage("assets/default_head_03.jpg"),
                     ),
                   ),
                   Align(
                     alignment: Alignment(0.5,0.5),
                     child: CircleAvatar(
-                      maxRadius: 25.0,
+                      maxRadius: 20.0,
                       backgroundImage: AssetImage("assets/default_head_04.jpg"),
                     ),
                   ),
                   Align(
                     alignment: Alignment(0.7,-0.4),
                     child: CircleAvatar(
-                      maxRadius: 25.0,
+                      maxRadius: 15.0,
                       backgroundImage: AssetImage("assets/default_head_05.jpg"),
                     ),
                   ),

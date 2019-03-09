@@ -172,7 +172,7 @@ class _FindFriendsPageState extends State<FindFriendsPage> {
                 "Add from Contacts",
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 18.0,
+                  fontSize: 16.0,
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -207,7 +207,7 @@ class _FindFriendsPageState extends State<FindFriendsPage> {
                     "Add from Facebook",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 18.0,
+                      fontSize: 16.0,
                       fontWeight: FontWeight.w400,
                     ),
                   ),

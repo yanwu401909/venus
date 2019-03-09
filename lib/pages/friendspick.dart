@@ -223,6 +223,9 @@ class _FriendsPickPageState extends State<FriendsPickPage>
           Expanded(
             child: Container(),
           ),
+          Expanded(
+            child: Container(),
+          ),
         ],
       ),
     );

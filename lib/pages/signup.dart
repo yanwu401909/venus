@@ -83,8 +83,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   border: InputBorder.none,
                   icon: Image.asset(
                     "assets/icon_person.png",
-                    width: 25.0,
-                    height: 25.0,
+                    width: 20.0,
+                    height: 20.0,
                   ),
                 ),
               ),
@@ -109,8 +109,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   border: InputBorder.none,
                   icon: Image.asset(
                     "assets/icon_email.png",
-                    width: 25.0,
-                    height: 25.0,
+                    width: 20.0,
+                    height: 20.0,
                   ),
                 ),
               ),
@@ -135,8 +135,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   border: InputBorder.none,
                   icon: Image.asset(
                     "assets/icon_password.png",
-                    width: 25.0,
-                    height: 25.0,
+                    width: 20.0,
+                    height: 20.0,
                   ),
                 ),
               ),
