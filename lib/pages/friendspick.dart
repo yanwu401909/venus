@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:venus/mock/mock.dart';
 import 'package:venus/model/models.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class FriendsPickPage extends StatefulWidget {
   @override
@@ -246,7 +247,7 @@ class PictureCard extends StatelessWidget {
           color: Colors.transparent,
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: NetworkImage(model.imageUrl),
+            image: CachedNetworkImageProvider(model.imageUrl),
           ),
           boxShadow: [
             BoxShadow(
